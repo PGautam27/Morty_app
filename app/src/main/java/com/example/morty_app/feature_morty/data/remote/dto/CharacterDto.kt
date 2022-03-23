@@ -1,8 +1,8 @@
 package com.example.morty_app.feature_morty.data.remote.dto
 
-import com.example.morty_app.feature_morty.domain.model.Result
+import com.example.morty_app.feature_morty.domain.model.Character
 
-data class ResultDto(
+data class CharacterDto(
     val created: String,
     val episode: List<String>,
     val gender: String,
@@ -16,8 +16,8 @@ data class ResultDto(
     val type: String,
     val url: String
 ){
-    fun ResultDto.toResult():Result{
-        return Result(
+    fun CharacterDto.toResult(): Character {
+        return Character(
             id = id,
             image = image,
             name = name,

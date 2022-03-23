@@ -1,6 +1,6 @@
 package com.example.morty_app.feature_morty.data.remote.dto
 
-data class MortyDto(
+data class CharacterListDto(
     val info: InfoDto,
-    val results: List<ResultDto>
+    val results: List<CharacterDto>
 )
