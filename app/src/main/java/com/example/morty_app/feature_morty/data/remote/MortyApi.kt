@@ -11,6 +11,6 @@ interface MortyApi {
     suspend fun getAllCharacters() : List<CharacterListDto>
 
     @GET("character/{id}")
-    suspend fun getCharacter(@Path("id") id: Int): CharacterDto
+    suspend fun getCharacter(@Path("id") id: String): CharacterDto
 
 }
