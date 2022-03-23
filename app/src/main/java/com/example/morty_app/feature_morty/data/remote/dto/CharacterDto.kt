@@ -15,8 +15,8 @@ data class CharacterDto(
     val status: String,
     val type: String,
     val url: String
-){
-    fun CharacterDto.toResult(): Character {
+)
+    fun CharacterDto.toCharacter(): Character {
         return Character(
             id = id,
             image = image,
@@ -27,4 +27,3 @@ data class CharacterDto(
             gender = gender
         )
     }
-}
