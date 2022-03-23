@@ -3,7 +3,6 @@ package com.example.morty_app.feature_morty.domain.use_cases.get_character
 import com.example.morty_app.core.Resource
 import com.example.morty_app.feature_morty.data.remote.dto.toCharacter
 import com.example.morty_app.feature_morty.domain.model.Character
-import com.example.morty_app.feature_morty.domain.model.CharacterList
 import com.example.morty_app.feature_morty.domain.repository.CharacterRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
