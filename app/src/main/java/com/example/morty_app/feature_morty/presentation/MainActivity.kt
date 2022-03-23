@@ -1,4 +1,4 @@
-package com.example.morty_app
+package com.example.morty_app.feature_morty.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -22,22 +22,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    Morty_appTheme {
-        Greeting("Android")
     }
 }
