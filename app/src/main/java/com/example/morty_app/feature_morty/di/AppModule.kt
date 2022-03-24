@@ -31,10 +31,6 @@ object AppModule {
     @Provides
     fun provideCharacterService(retrofit: Retrofit): MortyApi = retrofit.create(MortyApi::class.java)
 
-    fun provideRetrofit(gson: Gson) : Retrofit = Retrofit.Builder()
-        .baseUrl("https://rickandmortyapi.com/api/")
-        .addConverterFactory(GsonConverterFactory.create(gson))
-        .build()
 
     @Provides
     @Singleton

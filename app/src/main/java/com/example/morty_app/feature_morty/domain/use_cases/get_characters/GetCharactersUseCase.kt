@@ -1,7 +1,8 @@
 package com.example.morty_app.feature_morty.domain.use_cases.get_characters
 
+import android.util.Log
 import com.example.morty_app.core.Resource
-import com.example.morty_app.core.Resources
+import com.example.morty_app.feature_morty.data.remote.dto.toCharacter
 import com.example.morty_app.feature_morty.domain.model.Character
 import com.example.morty_app.feature_morty.domain.repository.CharacterRepository
 import kotlinx.coroutines.flow.Flow
@@ -15,13 +16,16 @@ class GetCharactersUseCase @Inject constructor(
 ) {
     operator fun invoke(): Flow<Resource<List<Character>>> = flow {
         try {
-            emit(Resources.Loading<List<Character>>())
-            val character = repository.getCharacters()
-            emit(Resources.Success<List<Character>>(character))
+            emit(Resource.Loading<List<Character>>())
+            kotlinx.coroutines.delay(5000)
+            val characterDTOs = repository.getCharacters()
+            val characters = characterDTOs.map { it.toCharacter() }
+            Log.i("GetCharacterUse Case", "invoke: ${characters.toString()}")
+            emit(Resource.Success<List<Character>>(characters))
         }catch (e: HttpException){
-            emit(Resources.Error<List<Character>>(e.localizedMessage ?: "An unexpected error occurred"))
+            emit(Resource.Error<List<Character>>(e.localizedMessage ?: "An unexpected error occurred"))
         }catch (e: IOException){
-            emit(Resources.Error<List<Character>>("Couldn't reach the server."))
+            emit(Resource.Error<List<Character>>("Couldn't reach the server."))
         }
     }
 }
