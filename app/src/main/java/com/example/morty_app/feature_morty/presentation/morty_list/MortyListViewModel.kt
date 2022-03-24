@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
+
 class MortyListViewModel @Inject constructor(
     private val getCharactersUseCase: GetCharactersUseCase
 ): ViewModel() {
