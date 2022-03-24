@@ -8,7 +8,7 @@ import retrofit2.http.Path
 interface MortyApi {
 
     @GET("character")
-    suspend fun getAllCharacters() : List<CharacterListDto>
+    suspend fun getAllCharacters() : List<CharacterDto>
 
     @GET("character/{id}")
     suspend fun getCharacter(@Path("id") id: String): CharacterDto

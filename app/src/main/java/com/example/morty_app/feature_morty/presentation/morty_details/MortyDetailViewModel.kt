@@ -34,7 +34,7 @@ class MortyDetailViewModel @Inject constructor(
         getCharacterUseCase(characterId = characterId).onEach { result ->
             when(result){
                 is Resource.Success ->{
-                    _state.value = MortyDetailState(character = result.data)
+                    _state.value = MortyDetailState(character = result.data as Character?)
                 }
                 is Resource.Error ->{
                     _state.value = MortyDetailState(

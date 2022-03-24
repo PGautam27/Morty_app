@@ -28,7 +28,7 @@ class MortyListViewModel @Inject constructor(
         getCharactersUseCase().onEach { result ->
             when(result){
                 is Resource.Success ->{
-                    _state.value = MortyListState(characters = (result.data?: emptyList()) as List<Character>)
+                    _state.value = MortyListState(characters = result.data as List<Character>)
                 }
                 is Resource.Error ->{
                     _state.value = MortyListState(
