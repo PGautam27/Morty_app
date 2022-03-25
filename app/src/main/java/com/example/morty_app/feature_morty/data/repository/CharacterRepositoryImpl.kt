@@ -9,8 +9,8 @@ import javax.inject.Inject
 class CharacterRepositoryImpl @Inject constructor(
     private val api: MortyApi
 ) : CharacterRepository{
-    override suspend fun getCharacters(): List<CharacterDto> {
-        return api.getAllCharacters().results
+    override suspend fun getCharacters(page: Int): List<CharacterDto> {
+        return api.getAllCharacters(page).results
     }
 
     override suspend fun getCharacterById(characterId: String): CharacterDto {

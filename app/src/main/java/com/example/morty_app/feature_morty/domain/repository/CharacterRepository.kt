@@ -5,7 +5,7 @@ import com.example.morty_app.feature_morty.data.remote.dto.CharacterListDto
 
 interface CharacterRepository {
 
-    suspend fun getCharacters(): List<CharacterDto>
+    suspend fun getCharacters(page: Int): List<CharacterDto>
 
     suspend fun getCharacterById(characterId: String): CharacterDto
 
