@@ -21,7 +21,7 @@ object AppModule {
     @Provides
     @Singleton
     fun provideMortyApi(gson: Gson): Retrofit = Retrofit.Builder()
-        .baseUrl("https://rickandmortyapi.com/api/")
+        .baseUrl(Constants.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
