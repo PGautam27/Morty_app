@@ -24,7 +24,7 @@ class MortyListViewModel @Inject constructor(
         getCharacters()
     }
 
-    private fun getCharacters(){
+    fun getCharacters(){
         getCharactersUseCase().onEach { result ->
 
             when(result){

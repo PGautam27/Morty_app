@@ -13,7 +13,7 @@ import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
 
-val page = MutableLiveData<Int>(1)
+object hi {val page = MutableLiveData<Int>(1)}
 
 class GetCharactersUseCase @Inject constructor(
     private val repository: CharacterRepository
@@ -21,9 +21,9 @@ class GetCharactersUseCase @Inject constructor(
     operator fun invoke(): Flow<Resource<List<Character>>> = flow {
         try {
             emit(Resource.Loading<List<Character>>())
-            //kotlinx.coroutines.delay(1000)
-            val pageNo: LiveData<Int> = page
-            val characterDTOs = pageNo.value?.let { repository.getCharacters(it) }
+            kotlinx.coroutines.delay(1000)
+            val pageNo: LiveData<Int> = hi.page
+            val characterDTOs = hi.page.value?.let { repository.getCharacters(it) }
             val characters = characterDTOs?.map { it.toCharacter() }
             Log.i("GetCharacterUse Case", "invoke: ${characters.toString()}")
             emit(Resource.Success<List<Character>>(characters!!))
