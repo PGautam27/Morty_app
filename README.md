@@ -18,7 +18,7 @@
             <li>Kotlin Coroutines</li>
         </ul>
         <p>
-            <a href="https://user-images.githubusercontent.com/92343715/160057542-6538db29-5efd-4ba3-9dab-fe55b19d628c.mp4">
+            <a>
                 <video src="https://user-images.githubusercontent.com/92343715/160057542-6538db29-5efd-4ba3-9dab-fe55b19d628c.mp4" width="200" style="max-width: 100%;"></video>
             </a>
         </p>
