@@ -17,7 +17,7 @@ class GetCharactersUseCase @Inject constructor(
     operator fun invoke(): Flow<Resource<List<Character>>> = flow {
         try {
             emit(Resource.Loading<List<Character>>())
-            kotlinx.coroutines.delay(5000)
+            kotlinx.coroutines.delay(1000)
             val characterDTOs = repository.getCharacters()
             val characters = characterDTOs.map { it.toCharacter() }
             Log.i("GetCharacterUse Case", "invoke: ${characters.toString()}")

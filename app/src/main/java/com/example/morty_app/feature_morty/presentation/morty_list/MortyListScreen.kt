@@ -16,10 +16,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.morty_app.feature_morty.presentation.Screen
 import com.example.morty_app.feature_morty.presentation.morty_list.component.CharacterListItem
 
 @Composable
 fun MortyListScreen(
+    navController: NavController,
     viewModel: MortyListViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
@@ -27,7 +29,10 @@ fun MortyListScreen(
         LazyColumn(modifier = Modifier.fillMaxSize()){
             items(state.characters) {character ->
                 CharacterListItem(
-                    character = character
+                    character = character,
+                    onItemClick = {
+                        navController.navigate(Screen.MortyDetailScreen.route +"/${character.id}")
+                    }
                 )
             }
         }
