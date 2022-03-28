@@ -30,28 +30,6 @@ class MortyListViewModel @Inject constructor(
     }.flow.cachedIn(viewModelScope)
 
     init {
-        getCharacters()
-    }
-
-    private fun getCharacters(){
-//        getCharactersUseCase().onEach { result ->
-//
-//            when(result){
-//                is Resource.Success ->{
-//                    _state.value = MortyListState(characters = result.data as List<Character>)
-//                }
-//                is Resource.Error ->{
-//                    _state.value = MortyListState(
-//                        error = result.message?: "An unexpected error occurred"
-//                    )
-//                }
-//                is Resource.Loading -> {
-//                    _state.value = MortyListState(isLoading = true)
-//                }
-//            }
-//        }.launchIn(viewModelScope)
         character
-
-
     }
 }
