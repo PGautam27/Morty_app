@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     composable(
                         route = Screen.MortyScreen.route
                     ){
-                        MortyListScreen(navController = navController)
+                        MortyListScreen(navController = navController, context = this@MainActivity)
                     }
                     composable(
                         route = Screen.MortyDetailScreen.route+"/{characterId}"

@@ -1,5 +1,6 @@
 package com.example.morty_app.feature_morty.presentation.morty_list
 
+import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -18,6 +19,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavController
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
+import androidx.paging.compose.items
+import com.example.morty_app.feature_morty.domain.model.Character
 import com.example.morty_app.feature_morty.domain.use_cases.get_characters.hi
 import com.example.morty_app.feature_morty.presentation.Screen
 import com.example.morty_app.feature_morty.presentation.morty_list.component.CharacterListItem
@@ -25,24 +30,18 @@ import com.example.morty_app.feature_morty.presentation.morty_list.component.Cha
 @Composable
 fun MortyListScreen(
     navController: NavController,
-    viewModel: MortyListViewModel = hiltViewModel()
+    viewModel: MortyListViewModel = hiltViewModel(),
+    context: Context
 ) {
+    val characterListItems: LazyPagingItems<Character> = viewModel.character.collectAsLazyPagingItems()
+
     val state = viewModel.state.value
     Scaffold(
         topBar = {if (!state.isLoading){
             TopAppBar(
                 title = {
-                    Text(text = "Morty Characters Page ${hi.page.value}", textAlign = TextAlign.Center)
-                    Spacer(modifier = Modifier.padding(10.dp))
-                    Icon(Icons.Filled.ArrowBack, "frontIcon", modifier = Modifier.clickable {
-                        hi.page.value = hi.page.value?.minus(1)
-                        viewModel.getCharacters()
-                    }.size(30.dp))
-                    Spacer(modifier = Modifier.padding(5.dp))
-                    Icon(Icons.Filled.ArrowForward, "frontIcon", modifier = Modifier.clickable {
-                        hi.page.value = hi.page.value?.plus(1)
-                        viewModel.getCharacters()
-                    }.size(30.dp))
+                    Text(text = "Morty Characters", textAlign = TextAlign.Center)
+
                 },
                 backgroundColor = Color.White,
                 contentColor = Color.Black,
@@ -54,13 +53,15 @@ fun MortyListScreen(
         LazyColumn(modifier = Modifier
             .fillMaxSize()
             .background(color = Color.White)){
-            items(state.characters) {character ->
-                CharacterListItem(
-                    character = character,
-                    onItemClick = {
-                        navController.navigate(Screen.MortyDetailScreen.route +"/${character.id}")
-                    }
-                )
+            items(characterListItems){ character ->
+                character?.let {
+                    CharacterListItem(
+                        character = it,
+                        onItemClick = {
+                            navController.navigate(Screen.MortyDetailScreen.route +"/${character.id}")
+                        }
+                    )
+                }
             }
         }
         if (state.error.isNotBlank()){
