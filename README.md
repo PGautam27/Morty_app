@@ -16,6 +16,7 @@
             <li>Navigation</li>
             <li>Retrofit</li>
             <li>Kotlin Coroutines</li>
+            <li>Pagging 3</li>
         </ul>
         <p>
             <a>
