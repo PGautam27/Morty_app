@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,9 +17,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.paging.LoadState
+import androidx.paging.LoadStates
+import androidx.paging.LoadType
+import androidx.paging.PagedList
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import com.example.morty_app.core.Resource
 import com.example.morty_app.feature_morty.domain.model.Character
 import com.example.morty_app.feature_morty.presentation.Screen
 import com.example.morty_app.feature_morty.presentation.morty_list.component.CharacterListItem
@@ -30,6 +36,10 @@ fun MortyListScreen(
     context: Context
 ) {
     val characterListItems: LazyPagingItems<Character> = viewModel.character.collectAsLazyPagingItems()
+
+    var st = remember {
+        MortyListState().isLoading
+    }
 
     val state = viewModel.state.value
     Scaffold(
@@ -50,12 +60,24 @@ fun MortyListScreen(
             .background(color = Color.White)){
             items(characterListItems){ character ->
                 character?.let {
+                    st = false
                     CharacterListItem(
                         character = it,
                         onItemClick = {
                             navController.navigate(Screen.MortyDetailScreen.route +"/${character.id}")
                         }
                     )
+                }
+            }
+
+            characterListItems.apply {
+                when{
+                     loadState.refresh is  LoadState.Loading ->{
+                        viewModel._state.value = MortyListState(isLoading = true)
+                    }
+                    loadState.source.append is LoadState.Loading -> {
+                        viewModel._state.value = MortyListState(isLoading = false)
+                    }
                 }
             }
         }
@@ -76,5 +98,12 @@ fun MortyListScreen(
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }
         }
+    }
+}
+
+@Composable
+fun Progress() {
+    Box(modifier = Modifier.fillMaxSize()){
+        CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
     }
 }
