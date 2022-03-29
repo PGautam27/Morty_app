@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,10 +40,12 @@ fun MortyListScreen(
     val characterListItems: LazyPagingItems<Character> =
         viewModel.character.collectAsLazyPagingItems()
 
-    var st = remember {
-        MortyListState().isLoading
+    val _state = remember {
+        mutableStateOf(MortyListState())
     }
-
+    val state1 = remember {
+        _state
+    }
     val state = viewModel.state.value
     Scaffold(
         topBar = {
@@ -64,7 +68,6 @@ fun MortyListScreen(
         ) {
             items(characterListItems) { character ->
                 character?.let {
-                    st = false
                     CharacterListItem(
                         character = it,
                         onItemClick = {
