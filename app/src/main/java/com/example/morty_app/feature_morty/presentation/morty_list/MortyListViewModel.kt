@@ -21,7 +21,6 @@ class MortyListViewModel @Inject constructor(
     val state: State<MortyListState> = _state
 
     val character: Flow<PagingData<Character>> = Pager(PagingConfig(pageSize = 42)) {
-
         getCharactersUseCase
     }.flow.cachedIn(viewModelScope)
 

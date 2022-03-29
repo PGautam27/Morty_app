@@ -37,7 +37,6 @@ fun MortyListScreen(
             TopAppBar(
                 title = {
                     Text(text = "Morty Characters", textAlign = TextAlign.Center)
-
                 },
                 backgroundColor = Color.White,
                 contentColor = Color.Black,
