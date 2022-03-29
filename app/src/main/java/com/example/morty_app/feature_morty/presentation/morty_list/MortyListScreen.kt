@@ -35,7 +35,8 @@ fun MortyListScreen(
     viewModel: MortyListViewModel = hiltViewModel(),
     context: Context
 ) {
-    val characterListItems: LazyPagingItems<Character> = viewModel.character.collectAsLazyPagingItems()
+    val characterListItems: LazyPagingItems<Character> =
+        viewModel.character.collectAsLazyPagingItems()
 
     var st = remember {
         MortyListState().isLoading
@@ -43,49 +44,53 @@ fun MortyListScreen(
 
     val state = viewModel.state.value
     Scaffold(
-        topBar = {if (!state.isLoading){
-            TopAppBar(
-                title = {
-                    Text(text = "Morty Characters", textAlign = TextAlign.Center)
-                },
-                backgroundColor = Color.White,
-                contentColor = Color.Black,
+        topBar = {
+            if (!state.isLoading) {
+                TopAppBar(
+                    title = {
+                        Text(text = "Morty Characters", textAlign = TextAlign.Center)
+                    },
+                    backgroundColor = Color.White,
+                    contentColor = Color.Black,
 
-            )
-        }
+                    )
+            }
         }, modifier = Modifier.fillMaxSize()
     ) {
-        LazyColumn(modifier = Modifier
-            .fillMaxSize()
-            .background(color = Color.White)){
-            items(characterListItems){ character ->
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = Color.White)
+        ) {
+            items(characterListItems) { character ->
                 character?.let {
                     st = false
                     CharacterListItem(
                         character = it,
                         onItemClick = {
-                            navController.navigate(Screen.MortyDetailScreen.route +"/${character.id}")
+                            navController.navigate(Screen.MortyDetailScreen.route + "/${character.id}")
                         }
                     )
                 }
             }
 
             characterListItems.apply {
-                when{
-                     loadState.refresh is  LoadState.Loading ->{
+                when {
+                    loadState.refresh is LoadState.Loading -> {
                         viewModel._state.value = MortyListState(isLoading = true)
                     }
                     loadState.source.append is LoadState.Loading -> {
                         viewModel._state.value = MortyListState(isLoading = false)
                     }
-                    loadState.source.prepend is LoadState.Error ->{
-                        viewModel._state.value = MortyListState(error = "Sorry couldn't reach the server")
+                    loadState.source.prepend is LoadState.Error -> {
+                        viewModel._state.value =
+                            MortyListState(error = "Sorry couldn't reach the server")
                     }
                 }
             }
         }
-        if (state.error.isNotBlank()){
-            Box(modifier = Modifier.fillMaxSize()){
+        if (state.error.isNotBlank()) {
+            Box(modifier = Modifier.fillMaxSize()) {
                 Text(
                     text = state.error,
                     color = MaterialTheme.colors.error,
@@ -96,8 +101,8 @@ fun MortyListScreen(
                 )
             }
         }
-        if (state.isLoading){
-            Box(modifier = Modifier.fillMaxSize()){
+        if (state.isLoading) {
+            Box(modifier = Modifier.fillMaxSize()) {
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }
         }

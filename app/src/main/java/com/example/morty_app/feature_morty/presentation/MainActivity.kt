@@ -26,15 +26,18 @@ class MainActivity : ComponentActivity() {
         setContent {
             Morty_appTheme {
                 val navController = rememberNavController()
-                NavHost(navController = navController, startDestination = Screen.MortyScreen.route){
+                NavHost(
+                    navController = navController,
+                    startDestination = Screen.MortyScreen.route
+                ) {
                     composable(
                         route = Screen.MortyScreen.route
-                    ){
+                    ) {
                         MortyListScreen(navController = navController, context = this@MainActivity)
                     }
                     composable(
-                        route = Screen.MortyDetailScreen.route+"/{characterId}"
-                    ){
+                        route = Screen.MortyDetailScreen.route + "/{characterId}"
+                    ) {
                         MortyDetailScreen(navController = navController)
                     }
                 }

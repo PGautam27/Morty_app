@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MortyListViewModel @Inject constructor(
     private val getCharactersUseCase: GetCharactersUseCase
-): ViewModel() {
+) : ViewModel() {
 
     val _state = mutableStateOf(MortyListState())
     val state: State<MortyListState> = _state
