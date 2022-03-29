@@ -78,6 +78,9 @@ fun MortyListScreen(
                     loadState.source.append is LoadState.Loading -> {
                         viewModel._state.value = MortyListState(isLoading = false)
                     }
+                    loadState.source.prepend is LoadState.Error ->{
+                        viewModel._state.value = MortyListState(error = "Sorry couldn't reach the server")
+                    }
                 }
             }
         }
@@ -98,12 +101,5 @@ fun MortyListScreen(
                 CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
             }
         }
-    }
-}
-
-@Composable
-fun Progress() {
-    Box(modifier = Modifier.fillMaxSize()){
-        CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
     }
 }
