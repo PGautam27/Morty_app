@@ -19,7 +19,7 @@ import javax.inject.Inject
 class MortyDetailViewModel @Inject constructor(
     private val getCharacterUseCase: GetCharacterUseCase,
     savedStateHandle: SavedStateHandle
-): ViewModel() {
+) : ViewModel() {
 
     private val _state = mutableStateOf(MortyDetailState())
     val state: State<MortyDetailState> = _state
@@ -30,15 +30,15 @@ class MortyDetailViewModel @Inject constructor(
         }
     }
 
-    private fun getCharacter(characterId: String){
+    private fun getCharacter(characterId: String) {
         getCharacterUseCase(characterId = characterId).onEach { result ->
-            when(result){
-                is Resource.Success ->{
+            when (result) {
+                is Resource.Success -> {
                     _state.value = MortyDetailState(character = result.data as Character?)
                 }
-                is Resource.Error ->{
+                is Resource.Error -> {
                     _state.value = MortyDetailState(
-                        error = result.message?: "An unexpected error occurred"
+                        error = result.message ?: "An unexpected error occurred"
                     )
                 }
                 is Resource.Loading -> {

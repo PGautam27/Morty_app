@@ -25,20 +25,21 @@ fun MortyDetailScreen(
     viewModel: MortyDetailViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
-    Box(modifier = Modifier.fillMaxSize().background(Color.White)) {
+    Box(modifier = Modifier
+        .fillMaxSize()
+        .background(Color.White)) {
         TopAppBar(
             title = {
                 Text(text = "Morty Characters")
             },
             navigationIcon = {
-                IconButton(onClick = {navController.popBackStack()}) {
+                IconButton(onClick = { navController.popBackStack() }) {
                     Icon(Icons.Filled.ArrowBack, "backIcon")
                 }
             },
             backgroundColor = Color.White,
             contentColor = Color.Black,
-
-        )
+            )
         state.character?.let { character ->
             Column(
                 modifier = Modifier.fillMaxSize(),
@@ -56,15 +57,17 @@ fun MortyDetailScreen(
                 Spacer(modifier = Modifier.padding(10.dp))
                 Text(text = "${character.name}", fontSize = 30.sp)
                 Spacer(modifier = Modifier.padding(10.dp))
-                Divider(modifier = Modifier
-                    .width(200.dp)
-                    .height(5.dp), color = Color.Gray)
+                Divider(
+                    modifier = Modifier
+                        .width(200.dp)
+                        .height(5.dp), color = Color.Gray
+                )
                 Spacer(modifier = Modifier.padding(20.dp))
                 Text(text = "${character.species} - ${character.status}", fontSize = 20.sp)
                 Spacer(modifier = Modifier.padding(10.dp))
-                Text(text = "Gender - ${character.gender}",fontSize = 20.sp)
+                Text(text = "Gender - ${character.gender}", fontSize = 20.sp)
                 Spacer(modifier = Modifier.padding(10.dp))
-                Text(text = "Type - ${character.type}",fontSize = 20.sp)
+                Text(text = "Type - ${character.type}", fontSize = 20.sp)
             }
         }
     }

@@ -12,17 +12,17 @@ import javax.inject.Inject
 
 class GetCharactersUseCase @Inject constructor(
     private val repository: CharacterRepository,
-) : PagingSource<Int, Character>(){
+) : PagingSource<Int, Character>() {
 
     override fun getRefreshKey(state: PagingState<Int, Character>): Int? {
         return state.anchorPosition?.let {
             val anchorPage = state?.closestPageToPosition(it)
-            anchorPage?.prevKey?.plus(1)?:anchorPage?.nextKey?.minus(1)
+            anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
         }
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Character> {
-        val page = params.key?:1
+        val page = params.key ?: 1
         return try {
             val characters = repository.getCharacters(page)
             LoadResult.Page(
@@ -30,7 +30,7 @@ class GetCharactersUseCase @Inject constructor(
                 prevKey = if (page == 1) null else page - 1,
                 nextKey = if (characters.isEmpty()!!) null else page + 1
             )
-        }catch (e: Exception){
+        } catch (e: Exception) {
             LoadResult.Error(e)
         }
     }

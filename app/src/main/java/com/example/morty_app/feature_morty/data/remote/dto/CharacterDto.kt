@@ -16,14 +16,15 @@ data class CharacterDto(
     val type: String,
     val url: String
 )
-    fun CharacterDto.toCharacter(): Character {
-        return Character(
-            id = id,
-            image = image,
-            name = name,
-            species = species,
-            status = status,
-            type = type,
-            gender = gender
-        )
-    }
+
+fun CharacterDto.toCharacter(): Character {
+    return Character(
+        id = id,
+        image = image,
+        name = name,
+        species = species,
+        status = status,
+        type = type,
+        gender = gender
+    )
+}
