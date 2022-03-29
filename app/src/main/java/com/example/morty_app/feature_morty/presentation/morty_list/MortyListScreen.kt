@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -20,13 +19,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.paging.LoadState
-import androidx.paging.LoadStates
-import androidx.paging.LoadType
-import androidx.paging.PagedList
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
-import com.example.morty_app.core.Resource
 import com.example.morty_app.feature_morty.domain.model.Character
 import com.example.morty_app.feature_morty.presentation.Screen
 import com.example.morty_app.feature_morty.presentation.morty_list.component.CharacterListItem
@@ -43,10 +38,7 @@ fun MortyListScreen(
     val _state = remember {
         mutableStateOf(MortyListState())
     }
-    val state1 = remember {
-        _state
-    }
-    val state = viewModel.state.value
+    val state = _state.value
     Scaffold(
         topBar = {
             if (!state.isLoading) {
@@ -80,13 +72,13 @@ fun MortyListScreen(
             characterListItems.apply {
                 when {
                     loadState.refresh is LoadState.Loading -> {
-                        viewModel._state.value = MortyListState(isLoading = true)
+                        _state.value = MortyListState(isLoading = true)
                     }
                     loadState.source.append is LoadState.Loading -> {
-                        viewModel._state.value = MortyListState(isLoading = false)
+                        _state.value = MortyListState(isLoading = false)
                     }
                     loadState.source.prepend is LoadState.Error -> {
-                        viewModel._state.value =
+                        _state.value =
                             MortyListState(error = "Sorry couldn't reach the server")
                     }
                 }
