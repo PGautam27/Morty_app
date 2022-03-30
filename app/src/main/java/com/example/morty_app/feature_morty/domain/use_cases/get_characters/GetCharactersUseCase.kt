@@ -2,11 +2,9 @@ package com.example.morty_app.feature_morty.domain.use_cases.get_characters
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import coil.network.HttpException
 import com.example.morty_app.feature_morty.data.remote.dto.toCharacter
 import com.example.morty_app.feature_morty.domain.model.Character
 import com.example.morty_app.feature_morty.domain.repository.CharacterRepository
-import okio.IOException
 import javax.inject.Inject
 
 
