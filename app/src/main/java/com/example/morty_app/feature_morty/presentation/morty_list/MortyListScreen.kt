@@ -30,7 +30,6 @@ import com.example.morty_app.feature_morty.presentation.morty_list.component.Cha
 fun MortyListScreen(
     navController: NavController,
     viewModel: MortyListViewModel = hiltViewModel(),
-    context: Context
 ) {
     val characterListItems: LazyPagingItems<Character> =
         viewModel.character.collectAsLazyPagingItems()
