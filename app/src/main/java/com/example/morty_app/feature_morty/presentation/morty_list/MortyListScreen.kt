@@ -1,6 +1,5 @@
 package com.example.morty_app.feature_morty.presentation.morty_list
 
-import android.content.Context
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
