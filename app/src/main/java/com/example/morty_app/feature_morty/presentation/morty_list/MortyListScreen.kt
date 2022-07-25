@@ -46,7 +46,6 @@ fun MortyListScreen(
                     },
                     backgroundColor = Color.White,
                     contentColor = Color.Black,
-
                     )
             }
         }, modifier = Modifier.fillMaxSize()

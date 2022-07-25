@@ -32,6 +32,7 @@ object AppModule {
     fun provideCharacterService(retrofit: Retrofit): MortyApi = retrofit.create(MortyApi::class.java)
 
 
+
     @Provides
     @Singleton
     fun provideCharacterRepository(api: MortyApi): CharacterRepository{
