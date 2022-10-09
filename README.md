@@ -48,9 +48,9 @@
             <li><a href="https://hacktoberfest.com/">Hacktoberfest Official Website</a></li>
         </ul>
         <h1 align ="center">Video For Reference👀</h1>
-            <a>
-                <video src="https://user-images.githubusercontent.com/92343715/160057542-6538db29-5efd-4ba3-9dab-fe55b19d628c.mp4" width="200" style="max-width: 100%;"></video> <video src= "https://user-images.githubusercontent.com/92343715/160400943-7acd7fe5-a0dd-468e-8dea-2ff48d320b47.mp4
+        <p align ="center"><a>
+                <video src= "https://user-images.githubusercontent.com/92343715/160400943-7acd7fe5-a0dd-468e-8dea-2ff48d320b47.mp4
                         " width ="200" style="max-width: 100%;"></video>
-            </a>
+            </a></p>
 
         
