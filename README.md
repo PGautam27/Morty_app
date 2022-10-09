@@ -49,6 +49,6 @@
         </ul>
         <h1 align ="center">Video For Reference👀</h1>
 
-        https://user-images.githubusercontent.com/92343715/160400943-7acd7fe5-a0dd-468e-8dea-2ff48d320b47.mp4
+        ![Morty](https://user-images.githubusercontent.com/92343715/160400943-7acd7fe5-a0dd-468e-8dea-2ff48d320b47.mp4)
 
         
