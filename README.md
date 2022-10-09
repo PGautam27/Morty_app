@@ -48,9 +48,7 @@
             <li><a href="https://hacktoberfest.com/">Hacktoberfest Official Website</a></li>
         </ul>
         <h1 align ="center">Video For Reference👀</h1>
-        <p align ="center"><a>
-                <video src= "https://user-images.githubusercontent.com/92343715/160400943-7acd7fe5-a0dd-468e-8dea-2ff48d320b47.mp4
-                        " width ="200" style="max-width: 100%;"></video>
-            </a></p>
+        ![ezgif com-gif-maker](https://user-images.githubusercontent.com/92343715/194762657-ac7fd299-c4fb-47a5-a5f7-dee9e3f54467.gif)
+
 
         
