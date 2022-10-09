@@ -51,5 +51,24 @@
         <p align="center">
         <img src="https://user-images.githubusercontent.com/92343715/194762657-ac7fd299-c4fb-47a5-a5f7-dee9e3f54467.gif"/></p>
 
+# Contributors 💪😎 
+Thanks guys, for making this funky project to stay alive.
 
-        
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/PGautam27">
+        <img src="https://avatars.githubusercontent.com/u/92343715?s=96&v=4" width="100;" alt="PGautam"/>
+        <br/>
+        <sub><b>P Gautam</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ayushtiwari110">
+        <img src="https://avatars.githubusercontent.com/u/84335414?v=4" width="100;" alt="ayushtiwari"/>
+        <br/>
+        <sub><b>Ayush Tiwari</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
