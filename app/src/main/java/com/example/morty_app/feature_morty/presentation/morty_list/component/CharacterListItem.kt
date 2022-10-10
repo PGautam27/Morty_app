@@ -11,11 +11,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import com.example.morty_app.feature_morty.domain.model.Character
+import com.example.morty_app.ui.theme.fontFamily
 
 @Composable
 fun CharacterListItem(
@@ -44,10 +46,11 @@ fun CharacterListItem(
             )
             Spacer(modifier = Modifier.padding(10.dp))
             Column(verticalArrangement = Arrangement.Center) {
-                Text(text = "${character.name}", style = TextStyle(fontSize = 18.sp))
+                Text(text = "${character.name}", style = TextStyle(fontSize = 18.sp), fontFamily = fontFamily,fontWeight = FontWeight.Bold)
                 Text(
                     text = "${character.species} - ${character.status}",
-                    style = TextStyle(fontSize = 15.sp)
+                    style = TextStyle(fontSize = 15.sp),
+                    fontFamily = fontFamily,fontWeight = FontWeight.Normal
                 )
             }
 
