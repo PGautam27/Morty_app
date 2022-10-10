@@ -13,10 +13,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -24,6 +27,7 @@ import androidx.paging.compose.items
 import com.example.morty_app.feature_morty.domain.model.Character
 import com.example.morty_app.feature_morty.presentation.Screen
 import com.example.morty_app.feature_morty.presentation.morty_list.component.CharacterListItem
+import com.example.morty_app.ui.theme.fontFamily
 
 @Composable
 fun MortyListScreen(
@@ -42,9 +46,9 @@ fun MortyListScreen(
             if (!state.isLoading) {
                 TopAppBar(
                     title = {
-                        Text(text = "Morty Characters", textAlign = TextAlign.Center)
+                        Text(text = "Morty Characters", textAlign = TextAlign.Center,fontFamily = fontFamily,fontWeight = FontWeight.ExtraBold)
                     },
-                    backgroundColor = Color.White,
+                    backgroundColor = Color.Yellow,
                     contentColor = Color.Black,
                     )
             }
@@ -53,7 +57,7 @@ fun MortyListScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = Color.White)
+                .background(color = Color.White).padding(top = 10.dp)
         ) {
             items(characterListItems) { character ->
                 character?.let {
@@ -99,4 +103,9 @@ fun MortyListScreen(
             }
         }
     }
+}
+@Preview(showSystemUi = true)
+@Composable
+fun preview_function2() {
+MortyListScreen(navController = rememberNavController())
 }

@@ -13,11 +13,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
+import com.example.morty_app.ui.theme.YellowVerticalGradient
+import com.example.morty_app.ui.theme.fontFamily
 
 @Composable
 fun MortyDetailScreen(
@@ -30,14 +33,14 @@ fun MortyDetailScreen(
         .background(Color.White)) {
         TopAppBar(
             title = {
-                Text(text = "Morty Characters")
+                Text(text = "Morty Characters",fontFamily = fontFamily, fontWeight = FontWeight.ExtraBold)
             },
             navigationIcon = {
                 IconButton(onClick = { navController.popBackStack() }) {
                     Icon(Icons.Filled.ArrowBack, "backIcon")
                 }
             },
-            backgroundColor = Color.White,
+            backgroundColor = Color.Yellow,
             contentColor = Color.Black,
             )
         state.character?.let { character ->
