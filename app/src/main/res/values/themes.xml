@@ -4,4 +4,5 @@
     <style name="Theme.Morty_app" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@color/black</item>
     </style>
+
 </resources>

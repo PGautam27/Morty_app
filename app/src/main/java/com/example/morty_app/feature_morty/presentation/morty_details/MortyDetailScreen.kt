@@ -30,7 +30,7 @@ fun MortyDetailScreen(
     val state = viewModel.state.value
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(Color.White)) {
+        .background(brush = YellowVerticalGradient)) {
         TopAppBar(
             title = {
                 Text(text = "Morty Characters",fontFamily = fontFamily, fontWeight = FontWeight.ExtraBold)
@@ -58,7 +58,7 @@ fun MortyDetailScreen(
                         .clip(RoundedCornerShape(30.dp))
                 )
                 Spacer(modifier = Modifier.padding(10.dp))
-                Text(text = "${character.name}", fontSize = 30.sp)
+                Text(text = "${character.name}", fontSize = 30.sp,fontFamily = fontFamily,fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.padding(10.dp))
                 Divider(
                     modifier = Modifier
@@ -66,11 +66,11 @@ fun MortyDetailScreen(
                         .height(5.dp), color = Color.Gray
                 )
                 Spacer(modifier = Modifier.padding(20.dp))
-                Text(text = "${character.species} - ${character.status}", fontSize = 20.sp)
+                Text(text = "${character.species} - ${character.status}", fontSize = 20.sp, fontFamily = fontFamily,fontWeight = FontWeight.Normal)
                 Spacer(modifier = Modifier.padding(10.dp))
-                Text(text = "Gender - ${character.gender}", fontSize = 20.sp)
+                Text(text = "Gender - ${character.gender}", fontSize = 20.sp, fontFamily = fontFamily,fontWeight = FontWeight.Normal)
                 Spacer(modifier = Modifier.padding(10.dp))
-                Text(text = "Type - ${character.type}", fontSize = 20.sp)
+                Text(text = "Type - ${character.type}", fontSize = 20.sp, fontFamily = fontFamily,fontWeight = FontWeight.Normal)
             }
         }
     }

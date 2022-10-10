@@ -9,6 +9,6 @@ val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 
 val Yellow = Color(0xFFFFFF00)
-val LightYellow = Color(0xFFFFF192)
+val LightYellow = Color(0x32FFFF00)
 
 val YellowVerticalGradient = Brush.verticalGradient(listOf(LightYellow, Yellow))
