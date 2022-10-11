@@ -13,11 +13,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
+import com.example.morty_app.ui.theme.YellowVerticalGradient
+import com.example.morty_app.ui.theme.fontFamily
 
 @Composable
 fun MortyDetailScreen(
@@ -27,17 +30,17 @@ fun MortyDetailScreen(
     val state = viewModel.state.value
     Box(modifier = Modifier
         .fillMaxSize()
-        .background(Color.White)) {
+        .background(brush = YellowVerticalGradient)) {
         TopAppBar(
             title = {
-                Text(text = "Morty Characters")
+                Text(text = "Morty Characters",fontFamily = fontFamily, fontWeight = FontWeight.ExtraBold)
             },
             navigationIcon = {
                 IconButton(onClick = { navController.popBackStack() }) {
                     Icon(Icons.Filled.ArrowBack, "backIcon")
                 }
             },
-            backgroundColor = Color.White,
+            backgroundColor = Color.Yellow,
             contentColor = Color.Black,
             )
         state.character?.let { character ->
@@ -55,7 +58,7 @@ fun MortyDetailScreen(
                         .clip(RoundedCornerShape(30.dp))
                 )
                 Spacer(modifier = Modifier.padding(10.dp))
-                Text(text = "${character.name}", fontSize = 30.sp)
+                Text(text = "${character.name}", fontSize = 30.sp,fontFamily = fontFamily,fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.padding(10.dp))
                 Divider(
                     modifier = Modifier
@@ -63,11 +66,11 @@ fun MortyDetailScreen(
                         .height(5.dp), color = Color.Gray
                 )
                 Spacer(modifier = Modifier.padding(20.dp))
-                Text(text = "${character.species} - ${character.status}", fontSize = 20.sp)
+                Text(text = "${character.species} - ${character.status}", fontSize = 20.sp, fontFamily = fontFamily,fontWeight = FontWeight.Normal)
                 Spacer(modifier = Modifier.padding(10.dp))
-                Text(text = "Gender - ${character.gender}", fontSize = 20.sp)
+                Text(text = "Gender - ${character.gender}", fontSize = 20.sp, fontFamily = fontFamily,fontWeight = FontWeight.Normal)
                 Spacer(modifier = Modifier.padding(10.dp))
-                Text(text = "Type - ${character.type}", fontSize = 20.sp)
+                Text(text = "Type - ${character.type}", fontSize = 20.sp, fontFamily = fontFamily,fontWeight = FontWeight.Normal)
             }
         }
     }
