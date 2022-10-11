@@ -1,4 +1,4 @@
-plugins {
+7plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
@@ -64,7 +64,7 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
 
     //navigation
-    implementation "androidx.navigation:navigation-compose:2.4.1"
+    implementation "androidx.navigation:navigation-compose:2.5.2"
 
     // Compose dependencies
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
@@ -100,5 +100,8 @@ dependencies {
 
     //Paging 3.0
     implementation 'androidx.paging:paging-compose:1.0.0-alpha10'
+
+    //Accompanist-navigation
+    implementation "com.google.accompanist:accompanist-navigation-animation:0.21.1-beta"
 
 }
