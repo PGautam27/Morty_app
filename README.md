@@ -72,9 +72,16 @@ Thanks guys, for making this funky project to stay alive.
     </td>
     <td align="center">
       <a href="https://github.com/SuyogMahajan">
-        <img src="https://avatars.githubusercontent.com/u/86179143?v=4" width="100;" alt="ayushtiwari"/>
+        <img src="https://avatars.githubusercontent.com/u/86179143?v=4" width="100;" alt="Suyog-Mahajan"/>
         <br/>
         <sub><b>Suyog Mahajan</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/VSen910">
+        <img src="https://avatars.githubusercontent.com/u/104011412?v=4" width="100;" alt="Vineet-Sen"/>
+        <br/>
+        <sub><b>Vineet Sen</b></sub>
       </a>
     </td>
   </tr>
