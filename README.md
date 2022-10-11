@@ -70,5 +70,12 @@ Thanks guys, for making this funky project to stay alive.
         <sub><b>Ayush Tiwari</b></sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://github.com/SuyogMahajan">
+        <img src="https://avatars.githubusercontent.com/u/86179143?v=4" width="100;" alt="ayushtiwari"/>
+        <br/>
+        <sub><b>Suyog Mahajan</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
