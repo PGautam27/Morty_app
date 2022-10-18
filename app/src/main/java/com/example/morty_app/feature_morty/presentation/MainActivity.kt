@@ -8,6 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.morty_app.feature_morty.presentation.morty_details.MortyDetailScreen
 import com.example.morty_app.feature_morty.presentation.morty_list.MortyListScreen
+import com.example.morty_app.feature_morty.presentation.splash.MortySplashScreen
 import com.example.morty_app.ui.theme.Morty_appTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = Screen.MortyScreen.route
+                    startDestination = Screen.MortySplashScreen.route
                 ) {
                     composable(
                         route = Screen.MortyScreen.route
@@ -31,6 +32,11 @@ class MainActivity : ComponentActivity() {
                         route = Screen.MortyDetailScreen.route + "/{characterId}"
                     ) {
                         MortyDetailScreen(navController = navController)
+                    }
+                    composable(
+                        route = Screen.MortySplashScreen.route
+                    ) {
+                        MortySplashScreen(navController=navController)
                     }
                 }
             }
