@@ -49,7 +49,7 @@ fun MortySplashScreen(navController: NavController)
                 modifier = Modifier.fillMaxSize()
             ){
                 Image(
-                    painter = painterResource(id = R.drawable.mortyapp2),
+                    painter = painterResource(id = R.drawable.rickmorty3333),
                     contentDescription ="splash",
                     modifier=Modifier.fillMaxSize(),
                     contentScale = ContentScale.FillBounds
