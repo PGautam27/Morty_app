@@ -10,6 +10,7 @@ import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.navigation
 import com.example.morty_app.feature_morty.presentation.morty_details.MortyDetailScreen
 import com.example.morty_app.feature_morty.presentation.morty_list.MortyListScreen
+import com.example.morty_app.feature_morty.presentation.splash.MortySplashScreen
 import com.example.morty_app.ui.theme.Morty_appTheme
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
@@ -26,7 +27,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberAnimatedNavController()
                 AnimatedNavHost(
                     navController = navController,
-                    startDestination = Screen.MortyScreen.route
+                    startDestination = Screen.MortySplashScreen.route
                 ) {
                     composable(
                         route = Screen.MortyScreen.route,
@@ -71,6 +72,11 @@ class MainActivity : ComponentActivity() {
                         }
                     ) {
                         MortyDetailScreen(navController = navController)
+                    }
+                    composable(
+                        route = Screen.MortySplashScreen.route
+                    ) {
+                        MortySplashScreen(navController=navController)
                     }
                 }
             }
