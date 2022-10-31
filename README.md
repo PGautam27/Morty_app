@@ -83,5 +83,12 @@ Thanks guys, for making this funky project to stay alive.
         <sub><b>Vineet Sen</b></sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://github.com/Srinidhi182">
+        <img src="https://avatars.githubusercontent.com/u/92366628?v=4" width="100;" alt="Srinidhi182"/>
+        <br/>
+        <sub><b>Srinidhi R</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
