@@ -26,8 +26,8 @@ fun CharacterListItem(
 ) {
     Card(
         modifier = Modifier.padding(vertical = 5.dp, horizontal = 10.dp),
-        elevation = 4.dp,
-        shape = RoundedCornerShape(10.dp)
+        elevation = 5.dp,
+        shape = RoundedCornerShape(15.dp)
     ) {
 
         Row(modifier = Modifier
