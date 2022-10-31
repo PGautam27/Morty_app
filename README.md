@@ -39,7 +39,6 @@
             <li>Take a look at <a href="https://github.com/PGautam27/Morty_app/blob/master/CONTRIBUTING.md">Contrubuting Guide</a>(Necessary)</li>
             <li>Create an issue for making any change to code. when issue will be approve you can make a change.</li>
             <li>Pull latest change from upstream branch before starting the changing code.</li>
-            <li>Add your file in proper folder(lowercase) with README.md in it. Add requirements.txt if needed.</li>
         </ul>
         <h2>Hacktoberfest Update 2022🎃</h2>
         <p>To know more about Hacktoberfest and their guidelines, kindly visit their website:</p>
